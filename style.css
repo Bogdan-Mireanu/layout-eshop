@@ -57,18 +57,24 @@
 .nav2, #myLinks, .navbar-image {
     display: none;
 }
+
 .nav {
+    position: sticky;
+    top: 0;
+    z-index: 99;
     display: flex;
     flex-wrap: wrap;
     background-color: rgb(0, 0, 0);
    
 }
+
 .nav .nav-list {
     list-style-type: none;
     display: flex;
     flex: 1 1 auto;
     align-items: center;
     margin-left: 4rem;
+    flex-wrap: wrap;
 }
 .nav ul li {
    flex: 1 1 auto;  
@@ -98,6 +104,51 @@
 .nav-cart span {
     color: rgb(255,255,255);
 }
+/*men submenu*/
+
+.men-menu-container {
+    min-width: 700px;
+    display: grid;
+    grid-template-areas:
+    'img img list1 list1 list2 list2'
+    'img img list1 list1 list2 list2';
+    grid-gap: 20px;
+    padding: 10px;
+}
+.men-menu-image {
+   grid-area: img;
+}
+.men-submenu1 {
+   grid-area: list1;
+}
+.men-submenu2{
+   grid-area: list2;
+}
+.nav-list > li {
+    position: relative;
+} 
+.men-dropdown-menu {
+    display: none;
+    position: absolute;
+    margin-top: 3rem;
+    padding: 2rem 2rem;
+    background-color: rgb(255, 255, 255);
+}
+.men-dropdown-menu li {
+    list-style-type: none;
+    padding-bottom: 1rem;
+  
+}
+.men-dropdown-menu a[href="mens.html"]{
+    color: rgb(112, 111, 111);
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+}
+.men-dropdown-menu a[href="mens.html"]:hover {
+    border-bottom: 0;
+    color: rgb(245, 116, 11);
+}
+
 /*slider*/
 .slider {
     display: flex;
@@ -364,48 +415,85 @@ del {
 .banner-benefits h3{
     color:rgb(245, 116, 11);
 }
-@media only screen and (max-width: 768px){
-    .banner-benefits{
-        grid-template-areas: 
-        'text text text'
-        'login select pay'
-        'login select pay'
-        'login select pay' ;
-        padding: 4rem;
-    }
-    .text {
-        grid-area: text;
-    }
-    .login {
-        grid-area: login;
-    }
-    .select {
-        grid-area: select;
-    }
-    .pay {
-        grid-area: pay;
-    }
-}
-@media only screen and (max-width: 680px){
-    .promotion-cards2{
-        display:none;
-    }
+.container {
+    width: 90vw;
 }
 
-@media only screen and (max-width: 320px){
-    .header-container ul{
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        align-items: center;
-        
-    }
-    .header-container ul li {
-        width: 100%;
-    }
-    .header-container ul li:nth-child(n+1) {
-        border-left: 0;
-    }
+.footer-form form {
+    display: flex;
+    height: 5vh;
+    
+    
+}
+.footer-form input[type="submit"] {
+    padding: 0 15px;
+    background-color: rgb(245, 116, 11);
+    border: 0px solid rgb(255, 255, 255);
+    color: rgb(255,255,255)
+}
+.footer h4 {
+    color: rgb(245, 116, 11);
+    margin-bottom: 1.2rem;
+    font-size: 2rem;
+}
+.footer-links ul li {
+    list-style-type: none;
+    
+}
+.footer-links ul li a{
+    color: rgb(112, 111, 111);
+    text-decoration: none;
+}
+.footer-links ul li a:hover {
+    color:rgb(245, 116, 11);
+}
+.footer-adress * {
+    color: rgb(112, 111, 111); 
+    list-style-type: none;
+    margin-bottom: 0.5rem;
+}
+.footer-adress li i{
+    margin-right: 1rem;
+    border: 1px solid rgb(112, 111, 111);
+    padding: 0.5rem;
+    border-radius: 50%;
+}
+.footer-flickr ul {
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+.footer-flickr li{
+    list-style-type: none;
+    padding: 1rem 1rem;
+}
+.footer .container {
+    display: grid;
+    grid-template-areas: 
+    'logo news news news'
+    'logo info adress flikr'
+    'logo info adress flikr';
+    grid-gap: 10px;
+    padding: 10px;
+}
+.footer-logo {
+    grid-area: logo;
+}
+.footer-form {
+    grid-area: news;
+    display: inline-block;
+}
+.footer-info {
+    grid-area: info;
+}
+.footer-adress {
+    grid-area: adress;
+}
+.footer-flickr {
+    grid-area: flikr;
+}
+
+@media only screen and (max-width: 760px){
     .header {
         margin-top: 1rem;
         height: 40vh;
@@ -417,6 +505,10 @@ del {
     .nav {
         display: none;
     }
+    .men-dropdown-menu {
+        display: none;
+    }
+  
     .nav2{
         background-color: rgb(0, 0, 0);
         height: 6rem;
@@ -448,6 +540,199 @@ del {
         border-radius: 5px;
         padding: 0.4rem;
         font-size: 3rem;
+    }
+    .fa.fa-bars:hover, .fa.fa-bars:active{
+        color: rgb(245, 116, 11);
+    }
+  
+    .cart {
+        background-color:rgb(245, 116, 11);
+        padding: 0 1rem;
+        position: absolute;
+        right: 2rem;
+    }
+    .cart:hover {
+        background-color: rgb(156, 156, 156);
+        cursor: pointer;
+    }
+
+    .cart * {
+        color: white;
+        list-style-type: none;
+    }
+    .cart-elements {
+        text-align: center;
+        padding-top: 1rem;
+    }
+    .men-submenu {
+        display: none;
+    }
+    .men-submenu {
+        border-top: 2px solid grey;
+        border-bottom: 2px solid grey;;
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        font-size: 1.3rem;
+        line-height: 1%;
+        margin-bottom: 2rem;
+    }
+    .men-submenu img {
+        padding: 2rem 0;
+        min-width: 400px;
+        height: auto;
+    }
+    .promotion-cards2{
+        display:none;
+    }
+    .product-tabs {
+        display: flex;
+        flex-direction: column;
+ 
+        align-items: center;
+       
+    }
+    .products-list {
+        max-width: 60%;
+        justify-content: center;
+    }
+    .banner-benefits{
+        grid-template-areas: 
+        'text text text'
+        'login select pay'
+        'login select pay'
+        'login select pay' ;
+        padding: 4rem;
+    }
+    .text {
+        grid-area: text;
+    }
+    .login {
+        grid-area: login;
+    }
+    .select {
+        grid-area: select;
+    }
+    .pay {
+        grid-area: pay;
+    }
+    .container {
+        width: 90vw;
+    }
+   
+    .footer-form form {
+        display: flex;
+        height: 5vh;
+        
+        
+    }
+    .footer-form input[type="submit"] {
+        padding: 0 15px;
+        background-color: rgb(245, 116, 11);
+        border: 0px solid rgb(255, 255, 255);
+        color: rgb(255,255,255)
+    }
+    .footer h4 {
+        color: rgb(245, 116, 11);
+        margin-bottom: 1.2rem;
+        font-size: 2rem;
+    }
+    .footer-links ul li {
+        list-style-type: none;
+        
+    }
+    .footer-links ul li a{
+        color: rgb(112, 111, 111);
+        text-decoration: none;
+    }
+    .footer-links ul li a:hover {
+        color:rgb(245, 116, 11);
+    }
+    .footer-adress * {
+        color: rgb(112, 111, 111); 
+        list-style-type: none;
+        margin-bottom: 0.5rem;
+    }
+    .footer-adress li i{
+        margin-right: 1rem;
+        border: 1px solid rgb(112, 111, 111);
+        padding: 0.5rem;
+        border-radius: 50%;
+    }
+    .footer-flickr ul {
+        display: flex;
+        flex-wrap: wrap;
+        
+    }
+    .footer-flickr li{
+        list-style-type: none;
+        padding: 1rem 1rem;
+    }
+}
+
+@media only screen and (max-width: 320px){
+    .header-container ul{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        
+    }
+    .header-container ul li {
+        width: 100%;
+    }
+    .header-container ul li:nth-child(n+1) {
+        border-left: 0;
+    }
+    .header {
+        margin-top: 1rem;
+        height: 40vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .nav {
+        display: none;
+    }
+    .men-dropdown-menu {
+        display: none;
+    }
+    .nav2{
+        background-color: rgb(0, 0, 0);
+        height: 6rem;
+        display: flex;
+    }
+    .nav2 a{
+        color: white;
+        padding: 1rem 1rem;
+        font-size: 1.4rem;
+        display: block;
+        
+    }
+ 
+    #myLinks {
+        display: none;
+        background-color: rgb(0, 0, 0);
+        flex-direction: column;
+        align-items: center;
+        max-height: auto;
+        
+    }
+    #myLinks a{
+        text-decoration: none;
+        color: white;
+        margin-bottom: 2rem;
+    }
+
+    .fa.fa-bars{
+        border: 1px solid white;
+        border-radius: 5px;
+        padding: 0.4rem;
+        font-size: 3rem;
+    }
+    .fa.fa-bars:hover{
+        color: rgb(245, 116, 11);
     }
     .cart {
         background-color:rgb(245, 116, 11);
@@ -553,5 +838,57 @@ del {
     .promotion-cards2{
         display: none;
     }
-    
+    .container {
+        width: 90vw;
+    }
+   
+    .footer-form form {
+        display: flex;
+        height: 5vh;
+        
+        
+    }
+    .footer-form input[type="submit"] {
+        padding: 0 15px;
+        background-color: rgb(245, 116, 11);
+        border: 0px solid rgb(255, 255, 255);
+        color: rgb(255,255,255)
+    }
+    .footer h4 {
+        color: rgb(245, 116, 11);
+        margin-bottom: 1.2rem;
+        font-size: 2rem;
+    }
+    .footer-links ul li {
+        list-style-type: none;
+        
+    }
+    .footer-links ul li a{
+        color: rgb(112, 111, 111);
+        text-decoration: none;
+    }
+    .footer-links ul li a:hover {
+        color:rgb(245, 116, 11);
+    }
+    .footer-adress * {
+        color: rgb(112, 111, 111); 
+        list-style-type: none;
+        margin-bottom: 0.5rem;
+    }
+    .footer-adress li i{
+        margin-right: 1rem;
+        border: 1px solid rgb(112, 111, 111);
+        padding: 0.5rem;
+        border-radius: 50%;
+    }
+    .footer-flickr ul {
+        display: flex;
+        flex-wrap: wrap;
+        
+    }
+    .footer-flickr li{
+        list-style-type: none;
+        padding: 1rem 1rem;
+    }
 }
+

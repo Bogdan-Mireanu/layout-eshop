@@ -22,4 +22,14 @@ function toggleSubmenu(){
   }
 }
 
+function toggleMenSubmenu(){
+  const toggleClass = document.querySelector(".men-dropdown-menu");
+  console.log("caca");
+  if(toggleClass.style.display === "none"){
+    toggleClass.style.display = "block";
+  } else {
+    toggleClass.style.display = "none";
+  }
+}
+
  
